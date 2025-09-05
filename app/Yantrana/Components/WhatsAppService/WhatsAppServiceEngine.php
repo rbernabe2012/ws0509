@@ -2984,6 +2984,7 @@ class WhatsAppServiceEngine extends BaseEngine implements WhatsAppServiceEngineI
     }
     public function processWebhook($request, $vendorUid)
     {
+        \Illuminate\Support\Facades\Log::info('Incoming WhatsApp Webhook:', $request->all());
         // __logDebug($request->all());
         $monitor = new ServerPerformanceMonitorService();
         if ($monitor->isCritical()) {
